@@ -7,6 +7,7 @@
 dmypy.json
 .dmypy.json
 .requirements-installed
+**/__pycache__
 __pycache__
 *venv
 **/*venv
