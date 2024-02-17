@@ -6,6 +6,9 @@ class StudentResponse(BaseModel):
     last_name: str
     email: str
 
+    class Config:
+        orm_mode = True
+
 
 class StudentInput(BaseModel):
     first_name: str = Field(...)

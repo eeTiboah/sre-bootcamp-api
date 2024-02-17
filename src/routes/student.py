@@ -4,16 +4,16 @@ from src.models.student import StudentResponse, StudentInput
 from src.db.database import get_db
 from src.db.models import Student
 from sqlalchemy.orm import Session
-from core.exceptions import NotFoundError
+from src.core.exceptions import NotFoundError
 
-route = APIRouter(prefix="/student")
+router = APIRouter(tags=["Student"], prefix="/students")
 
-route.get("/", status_code=status.HTTP_200_OK, response_model=StudentResponse)
+@router.get("/", status_code=status.HTTP_200_OK, response_model=StudentResponse)
 def get_students(db: Session= Depends(get_db)):
     students = db.query(Student).all()
     return students
 
-route.get("/{student_id}", status_code=status.HTTP_200_OK, response_model=StudentResponse)
+@router.get("/{student_id}", status_code=status.HTTP_200_OK, response_model=StudentResponse)
 def get_students(student_id: int, db: Session= Depends(get_db)):
     student = db.query(Student).filter(Student.id == student_id).first()
     if not student:
@@ -21,7 +21,7 @@ def get_students(student_id: int, db: Session= Depends(get_db)):
     
     return student
 
-route.post("/", status_code=status.HTTP_201_CREATED, response_model=StudentResponse)
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=StudentResponse)
 def create_student(student: StudentInput, db: Session= Depends(get_db)):
     new_student = Student(**student.model_dump())
     db.add(new_student)
@@ -30,7 +30,7 @@ def create_student(student: StudentInput, db: Session= Depends(get_db)):
 
     return new_student
 
-route.patch("/{student_id}", status_code=status.HTTP_200_OK, response_model=StudentResponse)
+@router.patch("/{student_id}", status_code=status.HTTP_200_OK, response_model=StudentResponse)
 def update_student(student_id: str, student: StudentInput, db: Session=Depends(get_db)):
     student = db.query(Student).filter(Student.id == student_id)
     student_in_db = student.first()
@@ -48,7 +48,7 @@ def update_student(student_id: str, student: StudentInput, db: Session=Depends(g
 
 
     
-route.delete("/{student_id}")
+@router.delete("/{student_id}")
 def delete_student(student_id: str, db: Session=Depends(get_db)):
     student = db.query(Student).filter(Student.id == student_id)
     student_in_db = student.first()
