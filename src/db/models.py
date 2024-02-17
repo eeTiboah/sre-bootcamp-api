@@ -5,7 +5,8 @@ from sqlalchemy import (
     Column,
     String,
     Integer,
-    DateTime
+    TIMESTAMP,
+    text
 )
 from datetime import datetime
 
@@ -15,5 +16,7 @@ class Student(Base):
     email = Column(String, unique=True, nullable=False)
     first_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
-    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(
+        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()"))
+    updated_at = Column(TIMESTAMP(timezone=True),
+                        nullable=False, server_default=text('now()'))

@@ -11,3 +11,8 @@ class StudentInput(BaseModel):
     first_name: str = Field(...)
     last_name: str = Field(...)
     email: str = Field(...)
+
+class StudentUpdate(BaseModel):
+    first_name: str
+    last_name: str
+    email: str
