@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "9a209ab5-c042-4d3c-bac5-bdfbd187e0ab",
+		"name": "Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12840289"
+	},
+	"item": [
+		{
+			"name": "Get Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8000/api/v1/students"
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8000/api/v1/students/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:8000/api/v1/students"
+			},
+			"response": []
+		},
+		{
+			"name": "Update A Student",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": "localhost:8000/api/v1/students/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete A Student",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8000/api/v1/students/1"
+			},
+			"response": []
+		}
+	]
+}
