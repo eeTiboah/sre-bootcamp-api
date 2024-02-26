@@ -12,11 +12,11 @@ This is a simple crud rest api to go through the [SRE Bootcamp exercise](https:/
 ```
 python -m venv venv
 ```
-#### 1.3 Activate python virtual environment
+#### 1.2 Activate python virtual environment
 ```
 source /venv/bin/activate
 ```
-#### 1.4 Install python packages
+#### 1.3 Install python packages
 ```
 pip install -r requirements.txt
 ```
@@ -33,7 +33,7 @@ DB_PASSWORD=
 ```
 
 ## Running API locally
-- Ensure the virtual environment is activated. If not see step 1.3
+- Ensure the virtual environment is activated. If not see step 1.2
 - Start server with using the code snippet below
 
 ```
